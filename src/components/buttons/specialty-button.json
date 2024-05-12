@@ -1,0 +1,46 @@
+{
+  "collectionName": "cmp_specialty_buttons",
+  "info": {
+    "displayName": "Specialty Button",
+    "icon": "adjust"
+  },
+  "options": {},
+  "attributes": {
+    "isMuiIconButton": {
+      "type": "boolean",
+      "default": false
+    },
+    "muiIconButtonIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "muiButtonText": {
+      "type": "string"
+    },
+    "muiButtonStartIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "muiButtonEndIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "settings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    }
+  }
+}

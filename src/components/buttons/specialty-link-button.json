@@ -1,0 +1,50 @@
+{
+  "collectionName": "cmp_specialty_link_buttons",
+  "info": {
+    "displayName": "Specialty Link Button",
+    "icon": "allergies"
+  },
+  "options": {},
+  "attributes": {
+    "isMuiIconButton": {
+      "type": "boolean",
+      "default": false
+    },
+    "muiIconButtonIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "muiButtonText": {
+      "type": "string"
+    },
+    "muiButtonStartIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "muiButtonEndIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "muiButtonLink": {
+      "type": "string",
+      "required": true
+    },
+    "settings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    }
+  }
+}

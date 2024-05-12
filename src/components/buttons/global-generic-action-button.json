@@ -1,0 +1,69 @@
+{
+  "collectionName": "cmp_global_generic_action_buttons",
+  "info": {
+    "displayName": "Global Generic Action Button"
+  },
+  "options": {},
+  "attributes": {
+    "isMuiIconButton": {
+      "type": "boolean",
+      "default": false
+    },
+    "muiIconButtonIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "muiButtonText": {
+      "type": "string"
+    },
+    "muiButtonStartIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "muiButtonEndIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "muiButtonAction": {
+      "type": "enumeration",
+      "enum": [
+        "openSidebar",
+        "closeSidebar",
+        "openLink"
+      ],
+      "required": true,
+      "default": "openLink"
+    },
+    "muiButtonLink": {
+      "type": "string"
+    },
+    "settings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "componentGridItemSettings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "useBreakpoint": {
+      "type": "component",
+      "repeatable": false,
+      "required": true,
+      "component": "global-components.use-breakpoint"
+    }
+  }
+}

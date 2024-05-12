@@ -1,0 +1,78 @@
+{
+  "collectionName": "cmp_specialty_stateful_buttons",
+  "info": {
+    "displayName": "Specialty Stateful Button",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "isMuiIconButton": {
+      "type": "boolean",
+      "default": false
+    },
+    "muiIconButtonIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "muiButtonText": {
+      "type": "string"
+    },
+    "muiButtonStartIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "muiButtonEndIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "muiIconButtonIconActive": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "muiButtonTextActive": {
+      "type": "string"
+    },
+    "muiButtonStartIconActive": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "muiButtonEndIconActive": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "settings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "muiButtonUseActiveState": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}
