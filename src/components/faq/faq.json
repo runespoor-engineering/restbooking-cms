@@ -1,0 +1,21 @@
+{
+  "collectionName": "cmp_faqs",
+  "info": {
+    "displayName": "FAQ",
+    "icon": "question",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "faq": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::faq.faq"
+    },
+    "technicalName": {
+      "type": "string",
+      "required": true,
+      "private": true
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "collectionName": "cmp_faq_catalog_manuals",
+  "info": {
+    "displayName": "FAQ Catalog Manual"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "faqs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "faq.faq-wrapper"
+    },
+    "expandIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "componentGridItemSettings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "settings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "useBreakpoint": {
+      "type": "component",
+      "repeatable": false,
+      "required": true,
+      "component": "global-components.use-breakpoint"
+    },
+    "showMoreButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "buttons.specialty-button"
+    }
+  }
+}

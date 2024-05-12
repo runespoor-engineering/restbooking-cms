@@ -1,0 +1,61 @@
+{
+  "collectionName": "cmp_faq_catalogs",
+  "info": {
+    "displayName": "FAQ Catalog",
+    "icon": "question-circle",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "componentGridItemSettings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "settings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "expandIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "faqCategories": {
+      "displayName": "FAQ Category",
+      "type": "component",
+      "repeatable": true,
+      "component": "faq.faq-category"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "tocCategories",
+        "categorySelect"
+      ],
+      "default": "tocCategories",
+      "required": true
+    },
+    "faqType": {
+      "type": "enumeration",
+      "enum": [
+        "accordion",
+        "text"
+      ],
+      "default": "accordion",
+      "required": true
+    },
+    "collapseIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

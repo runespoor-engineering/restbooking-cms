@@ -1,0 +1,21 @@
+{
+  "collectionName": "cmp_faq_categories",
+  "info": {
+    "displayName": "FAQ Category",
+    "icon": "arrow-alt-circle-down",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "faq_category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::faq-category.faq-category"
+    },
+    "technicalName": {
+      "type": "string",
+      "required": true,
+      "private": true
+    }
+  }
+}

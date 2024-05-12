@@ -255,6 +255,106 @@ export interface CountdownCountdown extends Schema.Component {
   };
 }
 
+export interface FaqFaqCatalogManual extends Schema.Component {
+  collectionName: 'cmp_faq_catalog_manuals';
+  info: {
+    displayName: 'FAQ Catalog Manual';
+  };
+  attributes: {
+    title: Attribute.String;
+    faqs: Attribute.Component<'faq.faq-wrapper', true>;
+    expandIcon: Attribute.Media;
+    componentGridItemSettings: Attribute.Component<'global-components.settings-json'>;
+    settings: Attribute.Component<'global-components.settings-json'>;
+    useBreakpoint: Attribute.Component<'global-components.use-breakpoint'> &
+      Attribute.Required;
+    showMoreButton: Attribute.Component<'buttons.specialty-button'>;
+  };
+}
+
+export interface FaqFaqCatalog extends Schema.Component {
+  collectionName: 'cmp_faq_catalogs';
+  info: {
+    displayName: 'FAQ Catalog';
+    icon: 'question-circle';
+    description: '';
+  };
+  attributes: {
+    componentGridItemSettings: Attribute.Component<'global-components.settings-json'>;
+    settings: Attribute.Component<'global-components.settings-json'>;
+    expandIcon: Attribute.Media;
+    faqCategories: Attribute.Component<'faq.faq-category', true>;
+    type: Attribute.Enumeration<['tocCategories', 'categorySelect']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'tocCategories'>;
+    faqType: Attribute.Enumeration<['accordion', 'text']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'accordion'>;
+    collapseIcon: Attribute.Media;
+  };
+}
+
+export interface FaqFaqCategory extends Schema.Component {
+  collectionName: 'cmp_faq_categories';
+  info: {
+    displayName: 'FAQ Category';
+    icon: 'arrow-alt-circle-down';
+    description: '';
+  };
+  attributes: {
+    faq_category: Attribute.Relation<
+      'faq.faq-category',
+      'oneToOne',
+      'api::faq-category.faq-category'
+    >;
+    technicalName: Attribute.String & Attribute.Required & Attribute.Private;
+  };
+}
+
+export interface FaqFaqWrapper extends Schema.Component {
+  collectionName: 'cmp_faq_wrappers';
+  info: {
+    displayName: 'FAQ Wrapper';
+  };
+  attributes: {
+    summary: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    details: Attribute.RichText &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    summaryIcon: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    technicalName: Attribute.String & Attribute.Required & Attribute.Private;
+    settings: Attribute.Component<'global-components.settings-json'>;
+  };
+}
+
+export interface FaqFaq extends Schema.Component {
+  collectionName: 'cmp_faqs';
+  info: {
+    displayName: 'FAQ';
+    icon: 'question';
+    description: '';
+  };
+  attributes: {
+    faq: Attribute.Relation<'faq.faq', 'oneToOne', 'api::faq.faq'>;
+    technicalName: Attribute.String & Attribute.Required & Attribute.Private;
+  };
+}
+
 export interface GlobalComponentsSettingsJson extends Schema.Component {
   collectionName: 'cmp_settings_jsons';
   info: {
@@ -334,6 +434,11 @@ declare module '@strapi/types' {
       'buttons.specialty-link-button': ButtonsSpecialtyLinkButton;
       'buttons.specialty-stateful-button': ButtonsSpecialtyStatefulButton;
       'countdown.countdown': CountdownCountdown;
+      'faq.faq-catalog-manual': FaqFaqCatalogManual;
+      'faq.faq-catalog': FaqFaqCatalog;
+      'faq.faq-category': FaqFaqCategory;
+      'faq.faq-wrapper': FaqFaqWrapper;
+      'faq.faq': FaqFaq;
       'global-components.settings-json': GlobalComponentsSettingsJson;
       'global-components.slider-settings-json': GlobalComponentsSliderSettingsJson;
       'global-components.theme': GlobalComponentsTheme;
