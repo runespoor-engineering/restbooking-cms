@@ -1,0 +1,50 @@
+{
+  "collectionName": "cmp_countdowns",
+  "info": {
+    "displayName": "Countdown",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "useFlipAnimation": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "timerFormat": {
+      "type": "enumeration",
+      "enum": [
+        "dd  : hh : mm : ss",
+        "dd : hh : mm",
+        "dd : hh",
+        "dd"
+      ],
+      "default": "dd  : hh : mm : ss",
+      "required": true
+    },
+    "timerDaysTitle": {
+      "type": "string"
+    },
+    "timerHoursTitle": {
+      "type": "string"
+    },
+    "timerMinutesTitle": {
+      "type": "string"
+    },
+    "timerSecondsTitle": {
+      "type": "string"
+    },
+    "targetDate": {
+      "type": "datetime",
+      "required": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "settings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    }
+  }
+}
