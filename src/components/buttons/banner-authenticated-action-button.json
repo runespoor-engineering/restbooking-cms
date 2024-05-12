@@ -39,6 +39,7 @@
     "muiButtonAction": {
       "type": "enumeration",
       "enum": [
+        "openTermsAndConditionsPopover",
         "openLink"
       ],
       "required": true,

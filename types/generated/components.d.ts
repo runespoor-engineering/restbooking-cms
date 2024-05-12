@@ -63,7 +63,9 @@ export interface ButtonsBannerAnonymousActionButton extends Schema.Component {
     muiButtonText: Attribute.String;
     muiButtonStartIcon: Attribute.Media;
     muiButtonEndIcon: Attribute.Media;
-    muiButtonAction: Attribute.Enumeration<['openLink']> &
+    muiButtonAction: Attribute.Enumeration<
+      ['openTermsAndConditionsPopover', 'openLink']
+    > &
       Attribute.Required &
       Attribute.DefaultTo<'openLink'>;
     muiButtonLink: Attribute.String;
@@ -86,7 +88,9 @@ export interface ButtonsBannerAuthenticatedActionButton
     muiButtonText: Attribute.String;
     muiButtonStartIcon: Attribute.Media;
     muiButtonEndIcon: Attribute.Media;
-    muiButtonAction: Attribute.Enumeration<['openLink']> &
+    muiButtonAction: Attribute.Enumeration<
+      ['openTermsAndConditionsPopover', 'openLink']
+    > &
       Attribute.Required &
       Attribute.DefaultTo<'openLink'>;
     muiButtonLink: Attribute.String;
@@ -226,6 +230,31 @@ export interface ButtonsSpecialtyStatefulButton extends Schema.Component {
   };
 }
 
+export interface CountdownCountdown extends Schema.Component {
+  collectionName: 'cmp_countdowns';
+  info: {
+    displayName: 'Countdown';
+    description: '';
+  };
+  attributes: {
+    useFlipAnimation: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    timerFormat: Attribute.Enumeration<
+      ['dd  : hh : mm : ss', 'dd : hh : mm', 'dd : hh', 'dd']
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'dd  : hh : mm : ss'>;
+    timerDaysTitle: Attribute.String;
+    timerHoursTitle: Attribute.String;
+    timerMinutesTitle: Attribute.String;
+    timerSecondsTitle: Attribute.String;
+    targetDate: Attribute.DateTime & Attribute.Required;
+    title: Attribute.String;
+    settings: Attribute.Component<'global-components.settings-json'>;
+  };
+}
+
 export interface GlobalComponentsSettingsJson extends Schema.Component {
   collectionName: 'cmp_settings_jsons';
   info: {
@@ -304,6 +333,7 @@ declare module '@strapi/types' {
       'buttons.specialty-button': ButtonsSpecialtyButton;
       'buttons.specialty-link-button': ButtonsSpecialtyLinkButton;
       'buttons.specialty-stateful-button': ButtonsSpecialtyStatefulButton;
+      'countdown.countdown': CountdownCountdown;
       'global-components.settings-json': GlobalComponentsSettingsJson;
       'global-components.slider-settings-json': GlobalComponentsSliderSettingsJson;
       'global-components.theme': GlobalComponentsTheme;
