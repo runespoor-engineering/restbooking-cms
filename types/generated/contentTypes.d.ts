@@ -788,6 +788,104 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiBrandBrand extends Schema.CollectionType {
+  collectionName: 'brands';
+  info: {
+    singularName: 'brand';
+    pluralName: 'brands';
+    displayName: 'Brand';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    identifier: Attribute.UID<'api::brand.brand', 'name'> & Attribute.Required;
+    appUrl: Attribute.String & Attribute.Required & Attribute.Unique;
+    icon: Attribute.Media;
+    languages: Attribute.Relation<
+      'api::brand.brand',
+      'manyToMany',
+      'api::language.language'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::brand.brand',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::brand.brand',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLanguageLanguage extends Schema.CollectionType {
+  collectionName: 'languages';
+  info: {
+    singularName: 'language';
+    pluralName: 'languages';
+    displayName: 'Language';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    value: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    brands: Attribute.Relation<
+      'api::language.language',
+      'manyToMany',
+      'api::brand.brand'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::language.language',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::language.language',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::language.language',
+      'oneToMany',
+      'api::language.language'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -806,6 +904,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::brand.brand': ApiBrandBrand;
+      'api::language.language': ApiLanguageLanguage;
     }
   }
 }
