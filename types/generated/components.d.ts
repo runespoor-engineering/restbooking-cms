@@ -355,6 +355,172 @@ export interface FaqFaq extends Schema.Component {
   };
 }
 
+export interface FormsFormField extends Schema.Component {
+  collectionName: 'cmp_form_fields';
+  info: {
+    displayName: 'Form Field';
+    icon: 'list';
+    description: '';
+  };
+  attributes: {
+    kind: Attribute.Enumeration<
+      [
+        'inputText',
+        'inputPassword',
+        'inputEmail',
+        'inputDate',
+        'inputHidden',
+        'inputTel',
+        'inputNumber',
+        'inputCheckbox',
+        'inputFile',
+        'inputTextarea',
+        'select'
+      ]
+    > &
+      Attribute.DefaultTo<'inputText'>;
+    options: Attribute.JSON;
+    label: Attribute.String;
+    checked: Attribute.Boolean;
+    identifier: Attribute.String;
+    max: Attribute.String;
+    maxlength: Attribute.Integer;
+    min: Attribute.String;
+    minlength: Attribute.Integer;
+    multiple: Attribute.Boolean;
+    name: Attribute.String;
+    pattern: Attribute.String;
+    placeholder: Attribute.String;
+    required: Attribute.Boolean & Attribute.DefaultTo<true>;
+    title: Attribute.String;
+    readonly: Attribute.Boolean & Attribute.DefaultTo<false>;
+    useThisField: Attribute.Boolean & Attribute.DefaultTo<true>;
+    gridItemSettings: Attribute.JSON;
+    disabled: Attribute.Boolean & Attribute.DefaultTo<false>;
+    muiHelperText: Attribute.String;
+    inputmode: Attribute.Enumeration<
+      ['none', 'text', 'tel', 'url', 'email', 'numeric', 'decimal', 'search']
+    > &
+      Attribute.DefaultTo<'text'>;
+    step: Attribute.Integer;
+    accept: Attribute.String;
+    autocomplete: Attribute.Enumeration<
+      [
+        'off',
+        'on',
+        'name',
+        'honorific-prefix',
+        'given-name',
+        'additional-name',
+        'family-name',
+        'honorific-suffix',
+        'nickname',
+        'email',
+        'username',
+        'new-password',
+        'current-password',
+        'one-time-code',
+        'organization-title',
+        'organization',
+        'street-address',
+        'address-line1',
+        'address-line2',
+        'address-line3',
+        'address-level4',
+        'address-level3',
+        'address-level2',
+        'address-level1',
+        'country',
+        'country-name',
+        'postal-code',
+        'cc-name',
+        'cc-given-name',
+        'cc-additional-name',
+        'cc-family-name',
+        'cc-number',
+        'cc-exp',
+        'cc-exp-month',
+        'cc-exp-year',
+        'cc-csc',
+        'cc-type',
+        'transaction-currency',
+        'transaction-amount',
+        'language',
+        'bday',
+        'bday-day',
+        'bday-month',
+        'bday-year',
+        'sex',
+        'tel',
+        'tel-country-code',
+        'tel-national',
+        'tel-area-code',
+        'tel-local',
+        'tel-extension',
+        'impp',
+        'url',
+        'photo'
+      ]
+    >;
+    patternErrorMessage: Attribute.String;
+    nameForErrorMessage: Attribute.String;
+    muiInputAdornmentVisibility: Attribute.Boolean & Attribute.DefaultTo<false>;
+    defaultUploadIcon: Attribute.Media;
+    interactedUploadIcon: Attribute.Media;
+    settings: Attribute.Component<'global-components.settings-json'>;
+    typeErrorMessage: Attribute.String;
+  };
+}
+
+export interface FormsFormGroup extends Schema.Component {
+  collectionName: 'cmp_form_groups';
+  info: {
+    displayName: 'Form Group';
+    icon: 'border-all';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    formFields: Attribute.Component<'forms.form-field', true>;
+    fieldsGridContainerSettings: Attribute.JSON;
+  };
+}
+
+export interface FormsFormStep extends Schema.Component {
+  collectionName: 'cmp_form_steps';
+  info: {
+    displayName: 'Form Step';
+    icon: 'shoe-prints';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.RichText;
+    defaultStepIcon: Attribute.Media;
+    activeStepIcon: Attribute.Media;
+    completedStepIcon: Attribute.Media;
+    formGroups: Attribute.Component<'forms.form-group', true>;
+    fieldsVariant: Attribute.Enumeration<['filled', 'outlined', 'standard']> &
+      Attribute.DefaultTo<'outlined'>;
+    fieldsColor: Attribute.Enumeration<['primary', 'secondary']> &
+      Attribute.DefaultTo<'primary'>;
+  };
+}
+
+export interface FormsForm extends Schema.Component {
+  collectionName: 'cmp_forms';
+  info: {
+    displayName: 'Form';
+    icon: 'list-alt';
+    description: '';
+  };
+  attributes: {
+    form: Attribute.Relation<'forms.form', 'oneToOne', 'api::form.form'>;
+    componentGridItemSettings: Attribute.Component<'global-components.settings-json'>;
+    settings: Attribute.Component<'global-components.settings-json'>;
+  };
+}
+
 export interface GlobalComponentsSettingsJson extends Schema.Component {
   collectionName: 'cmp_settings_jsons';
   info: {
@@ -439,6 +605,10 @@ declare module '@strapi/types' {
       'faq.faq-category': FaqFaqCategory;
       'faq.faq-wrapper': FaqFaqWrapper;
       'faq.faq': FaqFaq;
+      'forms.form-field': FormsFormField;
+      'forms.form-group': FormsFormGroup;
+      'forms.form-step': FormsFormStep;
+      'forms.form': FormsForm;
       'global-components.settings-json': GlobalComponentsSettingsJson;
       'global-components.slider-settings-json': GlobalComponentsSliderSettingsJson;
       'global-components.theme': GlobalComponentsTheme;

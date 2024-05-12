@@ -1,0 +1,63 @@
+{
+  "collectionName": "cmp_form_steps",
+  "info": {
+    "displayName": "Form Step",
+    "icon": "shoe-prints",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "defaultStepIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "activeStepIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "completedStepIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "formGroups": {
+      "type": "component",
+      "repeatable": true,
+      "component": "forms.form-group"
+    },
+    "fieldsVariant": {
+      "type": "enumeration",
+      "enum": [
+        "filled",
+        "outlined",
+        "standard"
+      ],
+      "default": "outlined"
+    },
+    "fieldsColor": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary"
+      ],
+      "default": "primary"
+    }
+  }
+}

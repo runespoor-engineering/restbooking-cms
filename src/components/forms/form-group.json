@@ -1,0 +1,22 @@
+{
+  "collectionName": "cmp_form_groups",
+  "info": {
+    "displayName": "Form Group",
+    "icon": "border-all",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "formFields": {
+      "type": "component",
+      "repeatable": true,
+      "component": "forms.form-field"
+    },
+    "fieldsGridContainerSettings": {
+      "type": "json"
+    }
+  }
+}

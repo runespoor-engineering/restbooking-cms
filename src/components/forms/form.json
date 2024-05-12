@@ -1,0 +1,26 @@
+{
+  "collectionName": "cmp_forms",
+  "info": {
+    "displayName": "Form",
+    "icon": "list-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "form": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form.form"
+    },
+    "componentGridItemSettings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "settings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    }
+  }
+}

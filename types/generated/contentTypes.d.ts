@@ -1101,6 +1101,158 @@ export interface ApiFaqCategoryFaqCategory extends Schema.CollectionType {
   };
 }
 
+export interface ApiFormForm extends Schema.CollectionType {
+  collectionName: 'forms';
+  info: {
+    singularName: 'form';
+    pluralName: 'forms';
+    displayName: 'Form';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    type: Attribute.Enumeration<
+      [
+        'login',
+        'registration',
+        'shortRegistration',
+        'profile',
+        'sendRecoveryTokenByEmail',
+        'recoverPassword',
+        'updatePassword',
+        'verifyEmail',
+        'updateEmail',
+        'verifyPhone',
+        'updatePhone',
+        'kycVerify',
+        'ticketOpen',
+        'exchangeComplimentaryPoints',
+        'activatePromoCode'
+      ]
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    steps: Attribute.Component<'forms.form-step', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    brand: Attribute.Relation<'api::form.form', 'oneToOne', 'api::brand.brand'>;
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    header: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    footer: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    formSettings: Attribute.Component<'global-components.settings-json'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    prevStepButton: Attribute.Component<'buttons.specialty-button'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    nextStepButton: Attribute.Component<'buttons.specialty-button'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    submitButton: Attribute.Component<'buttons.specialty-button'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    onSubmitLinkToOpen: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    readonly: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
+    disabled: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
+    technicalName: Attribute.String &
+      Attribute.Required &
+      Attribute.Private &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    useStepConnector: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    anonymousFallbackLink: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    useResetOnSuccessSubmit: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::form.form', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::form.form', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::form.form',
+      'oneToMany',
+      'api::form.form'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiLanguageLanguage extends Schema.CollectionType {
   collectionName: 'languages';
   info: {
@@ -1183,6 +1335,7 @@ declare module '@strapi/types' {
       'api::brand.brand': ApiBrandBrand;
       'api::faq.faq': ApiFaqFaq;
       'api::faq-category.faq-category': ApiFaqCategoryFaqCategory;
+      'api::form.form': ApiFormForm;
       'api::language.language': ApiLanguageLanguage;
     }
   }
