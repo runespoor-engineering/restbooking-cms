@@ -1,0 +1,21 @@
+{
+  "collectionName": "cmp_settings_jsons",
+  "info": {
+    "displayName": "Settings JSON",
+    "icon": "align-center",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "defaultSettings": {
+      "type": "json"
+    },
+    "customSettings": {
+      "type": "json"
+    },
+    "useCustomSettings": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

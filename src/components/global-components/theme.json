@@ -1,0 +1,26 @@
+{
+  "collectionName": "cmp_themes",
+  "info": {
+    "displayName": "Theme",
+    "icon": "paint-brush"
+  },
+  "options": {},
+  "attributes": {
+    "useCustomTheme": {
+      "type": "boolean",
+      "default": false
+    },
+    "defaultLightTheme": {
+      "type": "json"
+    },
+    "defaultDarkTheme": {
+      "type": "json"
+    },
+    "customLightTheme": {
+      "type": "json"
+    },
+    "customDarkTheme": {
+      "type": "json"
+    }
+  }
+}

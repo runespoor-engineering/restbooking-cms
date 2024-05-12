@@ -1,0 +1,25 @@
+{
+  "collectionName": "cmp_use_breakpoints",
+  "info": {
+    "displayName": "Use Breakpoint"
+  },
+  "options": {},
+  "attributes": {
+    "breakpoint": {
+      "type": "enumeration",
+      "enum": [
+        "xsUp",
+        "smUp",
+        "mdUp",
+        "lgUp",
+        "xlUp",
+        "smDown",
+        "mdDown",
+        "lgDown",
+        "xlDown"
+      ],
+      "required": true,
+      "default": "xsUp"
+    }
+  }
+}

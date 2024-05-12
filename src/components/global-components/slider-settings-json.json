@@ -1,0 +1,18 @@
+{
+  "collectionName": "cmp_slider_settings_jsons",
+  "info": {
+    "displayName": "Slider Settings JSON"
+  },
+  "options": {},
+  "attributes": {
+    "defaultSettings": {
+      "type": "json"
+    },
+    "customSettings": {
+      "type": "json"
+    },
+    "useCustomSettings": {
+      "type": "boolean"
+    }
+  }
+}
