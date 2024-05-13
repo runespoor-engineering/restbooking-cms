@@ -532,6 +532,28 @@ export interface GlobalComponentsImageDimensions extends Schema.Component {
   };
 }
 
+export interface GlobalComponentsProgressAnimation extends Schema.Component {
+  collectionName: 'cmp_progress_animations';
+  info: {
+    displayName: 'Progress Animation';
+    description: '';
+  };
+  attributes: {
+    richText: Attribute.RichText;
+    image: Attribute.Media;
+    settings: Attribute.Component<'global-components.settings-json'>;
+    type: Attribute.Enumeration<['richText', 'image']>;
+    delay: Attribute.Integer &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Attribute.DefaultTo<0>;
+  };
+}
+
 export interface GlobalComponentsSettingsJson extends Schema.Component {
   collectionName: 'cmp_settings_jsons';
   info: {
@@ -828,6 +850,7 @@ declare module '@strapi/types' {
       'forms.form-step': FormsFormStep;
       'forms.form': FormsForm;
       'global-components.image-dimensions': GlobalComponentsImageDimensions;
+      'global-components.progress-animation': GlobalComponentsProgressAnimation;
       'global-components.settings-json': GlobalComponentsSettingsJson;
       'global-components.slider-settings-json': GlobalComponentsSliderSettingsJson;
       'global-components.theme': GlobalComponentsTheme;

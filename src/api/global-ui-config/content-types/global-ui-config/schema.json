@@ -1,0 +1,69 @@
+{
+  "kind": "collectionType",
+  "collectionName": "global_ui_configs",
+  "info": {
+    "singularName": "global-ui-config",
+    "pluralName": "global-ui-configs",
+    "displayName": "Global UI Config"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "theme": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.theme"
+    },
+    "brand": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::brand.brand"
+    },
+    "globalComponentsSettings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "apartThumbnailType": {
+      "type": "enumeration",
+      "enum": [
+        "square",
+        "rectangular"
+      ],
+      "default": "square",
+      "required": true
+    },
+    "progressAnimation": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.progress-animation"
+    },
+    "useSaveModalHistory": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "pageSettings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "breadcrumbsSettings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "faqCatalogManualSettings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "defaultLayout": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::layout.layout"
+    }
+  }
+}

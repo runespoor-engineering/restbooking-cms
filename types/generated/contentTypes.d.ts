@@ -1235,6 +1235,55 @@ export interface ApiFormForm extends Schema.CollectionType {
   };
 }
 
+export interface ApiGlobalUiConfigGlobalUiConfig extends Schema.CollectionType {
+  collectionName: 'global_ui_configs';
+  info: {
+    singularName: 'global-ui-config';
+    pluralName: 'global-ui-configs';
+    displayName: 'Global UI Config';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    theme: Attribute.Component<'global-components.theme'>;
+    brand: Attribute.Relation<
+      'api::global-ui-config.global-ui-config',
+      'oneToOne',
+      'api::brand.brand'
+    >;
+    globalComponentsSettings: Attribute.Component<'global-components.settings-json'>;
+    apartThumbnailType: Attribute.Enumeration<['square', 'rectangular']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'square'>;
+    progressAnimation: Attribute.Component<'global-components.progress-animation'>;
+    useSaveModalHistory: Attribute.Boolean & Attribute.DefaultTo<true>;
+    pageSettings: Attribute.Component<'global-components.settings-json'>;
+    breadcrumbsSettings: Attribute.Component<'global-components.settings-json'>;
+    faqCatalogManualSettings: Attribute.Component<'global-components.settings-json'>;
+    defaultLayout: Attribute.Relation<
+      'api::global-ui-config.global-ui-config',
+      'oneToOne',
+      'api::layout.layout'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::global-ui-config.global-ui-config',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::global-ui-config.global-ui-config',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiLanguageLanguage extends Schema.CollectionType {
   collectionName: 'languages';
   info: {
@@ -1564,6 +1613,7 @@ declare module '@strapi/types' {
       'api::faq.faq': ApiFaqFaq;
       'api::faq-category.faq-category': ApiFaqCategoryFaqCategory;
       'api::form.form': ApiFormForm;
+      'api::global-ui-config.global-ui-config': ApiGlobalUiConfigGlobalUiConfig;
       'api::language.language': ApiLanguageLanguage;
       'api::layout.layout': ApiLayoutLayout;
       'api::navigation.navigation': ApiNavigationNavigation;
