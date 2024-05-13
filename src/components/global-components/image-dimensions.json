@@ -1,0 +1,17 @@
+{
+  "collectionName": "cmp_image_dimensions",
+  "info": {
+    "displayName": "Image Dimensions"
+  },
+  "options": {},
+  "attributes": {
+    "width": {
+      "type": "integer",
+      "required": true
+    },
+    "height": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}

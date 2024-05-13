@@ -1,0 +1,27 @@
+{
+  "collectionName": "cmp_language_switchers",
+  "info": {
+    "displayName": "Language Switcher",
+    "icon": "arrow-down",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "componentGridItemSettings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "settings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "useBreakpoint": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.use-breakpoint",
+      "required": true
+    }
+  }
+}

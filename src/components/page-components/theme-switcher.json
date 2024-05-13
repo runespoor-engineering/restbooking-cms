@@ -1,0 +1,27 @@
+{
+  "collectionName": "cmp_theme_switchers",
+  "info": {
+    "displayName": "Theme Switcher",
+    "icon": "exchange-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "componentGridItemSettings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "settings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "useBreakpoint": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.use-breakpoint",
+      "required": true
+    }
+  }
+}

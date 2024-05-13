@@ -1,0 +1,183 @@
+{
+  "kind": "collectionType",
+  "collectionName": "layouts",
+  "info": {
+    "singularName": "layout",
+    "pluralName": "layouts",
+    "displayName": "Layout"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "anonymousHeaderUiComponents": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "page-components.logo",
+        "navigations.auxiliary-navigation",
+        "buttons.global-anonymous-action-button"
+      ]
+    },
+    "authenticatedHeaderUiComponents": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "page-components.logo",
+        "navigations.auxiliary-navigation",
+        "user-account.user-account-menu-button",
+        "buttons.global-authenticated-action-button"
+      ]
+    },
+    "headerComponentsGridContainerSettings": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "global-components.settings-json"
+    },
+    "anonymousSidebarUiComponents": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "buttons.global-anonymous-action-button",
+        "page-components.logo",
+        "navigations.primary-navigation",
+        "page-components.theme-switcher",
+        "page-components.language-switcher"
+      ]
+    },
+    "authenticatedSidebarUiComponents": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "buttons.global-authenticated-action-button",
+        "navigations.primary-navigation",
+        "page-components.theme-switcher",
+        "page-components.language-switcher"
+      ]
+    },
+    "sidebarComponentsGridContainerSettings": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "global-components.settings-json"
+    },
+    "footerUiComponents": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "buttons.global-anonymous-action-button",
+        "page-components.language-switcher",
+        "page-components.rich-text",
+        "page-components.theme-switcher",
+        "navigations.secondary-navigation"
+      ]
+    },
+    "footerGridContainerSettings": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "global-components.settings-json"
+    },
+    "sidebarSettings": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "global-components.settings-json"
+    },
+    "headerSettings": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "global-components.settings-json"
+    },
+    "footerSettings": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "global-components.settings-json"
+    },
+    "page_contents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::page-content.page-content",
+      "mappedBy": "layout"
+    },
+    "page_requireds": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::page-required.page-required",
+      "mappedBy": "layout"
+    },
+    "page_templates": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::page-template.page-template",
+      "mappedBy": "layout"
+    },
+    "technicalName": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "private": true,
+      "required": true
+    },
+    "brand": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::brand.brand"
+    }
+  }
+}

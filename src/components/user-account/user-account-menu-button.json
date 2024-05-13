@@ -1,0 +1,32 @@
+{
+  "collectionName": "cmp_user_account_menu_buttons",
+  "info": {
+    "displayName": "User Account Menu Button",
+    "icon": "align-justify"
+  },
+  "options": {},
+  "attributes": {
+    "buttonConfig": {
+      "type": "component",
+      "repeatable": false,
+      "required": true,
+      "component": "buttons.specialty-button"
+    },
+    "useBreakpoint": {
+      "type": "component",
+      "repeatable": false,
+      "required": true,
+      "component": "global-components.use-breakpoint"
+    },
+    "componentGridItemSettings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "settings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    }
+  }
+}

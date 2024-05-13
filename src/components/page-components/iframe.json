@@ -1,0 +1,29 @@
+{
+  "collectionName": "cmp_iframes",
+  "info": {
+    "displayName": "Iframe",
+    "icon": "chalkboard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "src": {
+      "type": "string",
+      "required": true
+    },
+    "iframeTitle": {
+      "type": "string",
+      "required": true
+    },
+    "settings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "componentGridItemSettings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    }
+  }
+}

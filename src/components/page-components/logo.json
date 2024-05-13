@@ -1,0 +1,87 @@
+{
+  "collectionName": "cmp_logos",
+  "info": {
+    "displayName": "Logo",
+    "icon": "image",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "lightLarge": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "darkLarge": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "lightSmall": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "darkSmall": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "onClick": {
+      "type": "string",
+      "regex": "^(?:link|action):"
+    },
+    "useBreakpoint": {
+      "type": "component",
+      "repeatable": false,
+      "required": true,
+      "component": "global-components.use-breakpoint"
+    },
+    "settings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "componentGridItemSettings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "logoSizeSwitchingBreakpoint": {
+      "type": "enumeration",
+      "enum": [
+        "xsUp",
+        "smUp",
+        "mdUp",
+        "lgUp",
+        "xlUp"
+      ],
+      "default": "mdUp",
+      "required": true
+    },
+    "smallImageDimensions": {
+      "displayName": "Image Dimensions",
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.image-dimensions",
+      "required": false
+    },
+    "largeImageDimensions": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.image-dimensions"
+    }
+  }
+}

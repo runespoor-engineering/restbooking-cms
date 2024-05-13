@@ -1,0 +1,33 @@
+{
+  "collectionName": "cmp_breadcrumbs",
+  "info": {
+    "displayName": "Breadcrumbs"
+  },
+  "options": {},
+  "attributes": {
+    "separatorIcon":  {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "useBreakpoint": {
+      "type": "component",
+      "repeatable": false,
+      "required": true,
+      "component": "global-components.use-breakpoint"
+    },
+    "settings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "componentGridItemSettings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    }
+  }
+}

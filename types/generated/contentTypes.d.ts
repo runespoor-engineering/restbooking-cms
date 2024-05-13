@@ -1295,6 +1295,176 @@ export interface ApiLanguageLanguage extends Schema.CollectionType {
   };
 }
 
+export interface ApiLayoutLayout extends Schema.CollectionType {
+  collectionName: 'layouts';
+  info: {
+    singularName: 'layout';
+    pluralName: 'layouts';
+    displayName: 'Layout';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    anonymousHeaderUiComponents: Attribute.DynamicZone<
+      [
+        'page-components.logo',
+        'navigations.auxiliary-navigation',
+        'buttons.global-anonymous-action-button'
+      ]
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    authenticatedHeaderUiComponents: Attribute.DynamicZone<
+      [
+        'page-components.logo',
+        'navigations.auxiliary-navigation',
+        'user-account.user-account-menu-button',
+        'buttons.global-authenticated-action-button'
+      ]
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    headerComponentsGridContainerSettings: Attribute.Component<'global-components.settings-json'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    anonymousSidebarUiComponents: Attribute.DynamicZone<
+      [
+        'buttons.global-anonymous-action-button',
+        'page-components.logo',
+        'navigations.primary-navigation',
+        'page-components.theme-switcher',
+        'page-components.language-switcher'
+      ]
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    authenticatedSidebarUiComponents: Attribute.DynamicZone<
+      [
+        'buttons.global-authenticated-action-button',
+        'navigations.primary-navigation',
+        'page-components.theme-switcher',
+        'page-components.language-switcher'
+      ]
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    sidebarComponentsGridContainerSettings: Attribute.Component<'global-components.settings-json'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    footerUiComponents: Attribute.DynamicZone<
+      [
+        'buttons.global-anonymous-action-button',
+        'page-components.language-switcher',
+        'page-components.rich-text',
+        'page-components.theme-switcher',
+        'navigations.secondary-navigation'
+      ]
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    footerGridContainerSettings: Attribute.Component<'global-components.settings-json'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    sidebarSettings: Attribute.Component<'global-components.settings-json'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    headerSettings: Attribute.Component<'global-components.settings-json'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    footerSettings: Attribute.Component<'global-components.settings-json'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    page_contents: Attribute.Relation<
+      'api::layout.layout',
+      'oneToMany',
+      'api::page-content.page-content'
+    >;
+    page_requireds: Attribute.Relation<
+      'api::layout.layout',
+      'oneToMany',
+      'api::page-required.page-required'
+    >;
+    page_templates: Attribute.Relation<
+      'api::layout.layout',
+      'oneToMany',
+      'api::page-template.page-template'
+    >;
+    technicalName: Attribute.String &
+      Attribute.Required &
+      Attribute.Private &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    brand: Attribute.Relation<
+      'api::layout.layout',
+      'oneToOne',
+      'api::brand.brand'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::layout.layout',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::layout.layout',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::layout.layout',
+      'oneToMany',
+      'api::layout.layout'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiNavigationNavigation extends Schema.CollectionType {
   collectionName: 'navigations';
   info: {
@@ -1395,6 +1565,7 @@ declare module '@strapi/types' {
       'api::faq-category.faq-category': ApiFaqCategoryFaqCategory;
       'api::form.form': ApiFormForm;
       'api::language.language': ApiLanguageLanguage;
+      'api::layout.layout': ApiLayoutLayout;
       'api::navigation.navigation': ApiNavigationNavigation;
     }
   }

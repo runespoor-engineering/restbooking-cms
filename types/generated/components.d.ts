@@ -521,6 +521,17 @@ export interface FormsForm extends Schema.Component {
   };
 }
 
+export interface GlobalComponentsImageDimensions extends Schema.Component {
+  collectionName: 'cmp_image_dimensions';
+  info: {
+    displayName: 'Image Dimensions';
+  };
+  attributes: {
+    width: Attribute.Integer & Attribute.Required;
+    height: Attribute.Integer & Attribute.Required;
+  };
+}
+
 export interface GlobalComponentsSettingsJson extends Schema.Component {
   collectionName: 'cmp_settings_jsons';
   info: {
@@ -678,6 +689,121 @@ export interface NavigationsSecondaryNavigation extends Schema.Component {
   };
 }
 
+export interface PageComponentsBreadcrumbs extends Schema.Component {
+  collectionName: 'cmp_breadcrumbs';
+  info: {
+    displayName: 'Breadcrumbs';
+  };
+  attributes: {
+    separatorIcon: Attribute.Media;
+    useBreakpoint: Attribute.Component<'global-components.use-breakpoint'> &
+      Attribute.Required;
+    settings: Attribute.Component<'global-components.settings-json'>;
+    componentGridItemSettings: Attribute.Component<'global-components.settings-json'>;
+  };
+}
+
+export interface PageComponentsIframe extends Schema.Component {
+  collectionName: 'cmp_iframes';
+  info: {
+    displayName: 'Iframe';
+    icon: 'chalkboard';
+    description: '';
+  };
+  attributes: {
+    src: Attribute.String & Attribute.Required;
+    iframeTitle: Attribute.String & Attribute.Required;
+    settings: Attribute.Component<'global-components.settings-json'>;
+    componentGridItemSettings: Attribute.Component<'global-components.settings-json'>;
+  };
+}
+
+export interface PageComponentsLanguageSwitcher extends Schema.Component {
+  collectionName: 'cmp_language_switchers';
+  info: {
+    displayName: 'Language Switcher';
+    icon: 'arrow-down';
+    description: '';
+  };
+  attributes: {
+    componentGridItemSettings: Attribute.Component<'global-components.settings-json'>;
+    settings: Attribute.Component<'global-components.settings-json'>;
+    useBreakpoint: Attribute.Component<'global-components.use-breakpoint'> &
+      Attribute.Required;
+  };
+}
+
+export interface PageComponentsLogo extends Schema.Component {
+  collectionName: 'cmp_logos';
+  info: {
+    displayName: 'Logo';
+    icon: 'image';
+    description: '';
+  };
+  attributes: {
+    lightLarge: Attribute.Media;
+    darkLarge: Attribute.Media;
+    lightSmall: Attribute.Media;
+    darkSmall: Attribute.Media;
+    onClick: Attribute.String;
+    useBreakpoint: Attribute.Component<'global-components.use-breakpoint'> &
+      Attribute.Required;
+    settings: Attribute.Component<'global-components.settings-json'>;
+    componentGridItemSettings: Attribute.Component<'global-components.settings-json'>;
+    logoSizeSwitchingBreakpoint: Attribute.Enumeration<
+      ['xsUp', 'smUp', 'mdUp', 'lgUp', 'xlUp']
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'mdUp'>;
+    smallImageDimensions: Attribute.Component<'global-components.image-dimensions'>;
+    largeImageDimensions: Attribute.Component<'global-components.image-dimensions'>;
+  };
+}
+
+export interface PageComponentsRichText extends Schema.Component {
+  collectionName: 'cmp_rich_texts';
+  info: {
+    displayName: 'Rich Text';
+    icon: 'align-left';
+    description: '';
+  };
+  attributes: {
+    content: Attribute.RichText & Attribute.Required;
+    componentGridItemSettings: Attribute.Component<'global-components.settings-json'>;
+  };
+}
+
+export interface PageComponentsThemeSwitcher extends Schema.Component {
+  collectionName: 'cmp_theme_switchers';
+  info: {
+    displayName: 'Theme Switcher';
+    icon: 'exchange-alt';
+    description: '';
+  };
+  attributes: {
+    componentGridItemSettings: Attribute.Component<'global-components.settings-json'>;
+    settings: Attribute.Component<'global-components.settings-json'>;
+    useBreakpoint: Attribute.Component<'global-components.use-breakpoint'> &
+      Attribute.Required;
+  };
+}
+
+export interface UserAccountUserAccountMenuButton extends Schema.Component {
+  collectionName: 'cmp_user_account_menu_buttons';
+  info: {
+    displayName: 'User Account Menu Button';
+    icon: 'align-justify';
+  };
+  attributes: {
+    buttonConfig: Attribute.Component<'buttons.specialty-button'> &
+      Attribute.Required;
+    useBreakpoint: Attribute.Component<'global-components.use-breakpoint'> &
+      Attribute.Required;
+    componentGridItemSettings: Attribute.Component<'global-components.settings-json'>;
+    settings: Attribute.Component<'global-components.settings-json'>;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -701,6 +827,7 @@ declare module '@strapi/types' {
       'forms.form-group': FormsFormGroup;
       'forms.form-step': FormsFormStep;
       'forms.form': FormsForm;
+      'global-components.image-dimensions': GlobalComponentsImageDimensions;
       'global-components.settings-json': GlobalComponentsSettingsJson;
       'global-components.slider-settings-json': GlobalComponentsSliderSettingsJson;
       'global-components.theme': GlobalComponentsTheme;
@@ -711,6 +838,13 @@ declare module '@strapi/types' {
       'navigations.auxiliary-navigation': NavigationsAuxiliaryNavigation;
       'navigations.primary-navigation': NavigationsPrimaryNavigation;
       'navigations.secondary-navigation': NavigationsSecondaryNavigation;
+      'page-components.breadcrumbs': PageComponentsBreadcrumbs;
+      'page-components.iframe': PageComponentsIframe;
+      'page-components.language-switcher': PageComponentsLanguageSwitcher;
+      'page-components.logo': PageComponentsLogo;
+      'page-components.rich-text': PageComponentsRichText;
+      'page-components.theme-switcher': PageComponentsThemeSwitcher;
+      'user-account.user-account-menu-button': UserAccountUserAccountMenuButton;
     }
   }
 }
