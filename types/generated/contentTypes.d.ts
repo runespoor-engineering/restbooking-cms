@@ -888,6 +888,103 @@ export interface ApiApartmentApartment extends Schema.CollectionType {
   };
 }
 
+export interface ApiApartmentCategoryApartmentCategory
+  extends Schema.CollectionType {
+  collectionName: 'apartment_categories';
+  info: {
+    singularName: 'apartment-category';
+    pluralName: 'apartment-categories';
+    displayName: 'Apartment Category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    brand: Attribute.Relation<
+      'api::apartment-category.apartment-category',
+      'oneToOne',
+      'api::brand.brand'
+    >;
+    apartments: Attribute.Relation<
+      'api::apartment-category.apartment-category',
+      'manyToMany',
+      'api::apartment.apartment'
+    >;
+    route: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    slug: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    tileColor: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    tileIcon: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    seo: Attribute.Component<'seo.seo'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    technicalName: Attribute.String &
+      Attribute.Required &
+      Attribute.Private &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::apartment-category.apartment-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::apartment-category.apartment-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::apartment-category.apartment-category',
+      'oneToMany',
+      'api::apartment-category.apartment-category'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiBannerBanner extends Schema.CollectionType {
   collectionName: 'banners';
   info: {
@@ -1709,6 +1806,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::apartment.apartment': ApiApartmentApartment;
+      'api::apartment-category.apartment-category': ApiApartmentCategoryApartmentCategory;
       'api::banner.banner': ApiBannerBanner;
       'api::brand.brand': ApiBrandBrand;
       'api::faq.faq': ApiFaqFaq;

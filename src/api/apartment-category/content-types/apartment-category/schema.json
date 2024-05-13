@@ -1,0 +1,98 @@
+{
+  "kind": "collectionType",
+  "collectionName": "apartment_categories",
+  "info": {
+    "singularName": "apartment-category",
+    "pluralName": "apartment-categories",
+    "displayName": "Apartment Category"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "brand": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::brand.brand"
+    },
+    "apartments": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::apartment.apartment",
+      "inversedBy": "apartment_categories"
+    },
+    "route": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "required": true,
+      "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "tileColor": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "tileIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "seo.seo"
+    },
+    "technicalName": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "required": true,
+      "private": true
+    }
+  }
+}
