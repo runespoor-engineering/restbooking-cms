@@ -25,19 +25,7 @@
       "enum": [
         "login",
         "registration",
-        "shortRegistration",
-        "profile",
-        "sendRecoveryTokenByEmail",
-        "recoverPassword",
-        "updatePassword",
-        "verifyEmail",
-        "updateEmail",
-        "verifyPhone",
-        "updatePhone",
-        "kycVerify",
-        "ticketOpen",
-        "exchangeComplimentaryPoints",
-        "activatePromoCode"
+        "bookApartment"
       ]
     },
     "steps": {
