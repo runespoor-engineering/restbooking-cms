@@ -13,6 +13,134 @@ export interface ApartmentApartmentTitlePlaceholder extends Schema.Component {
   };
 }
 
+export interface ApartmentsApartmentCategoryWrapper extends Schema.Component {
+  collectionName: 'cmp_apartment_category_wrappers';
+  info: {
+    displayName: 'Apartment Category Wrapper';
+    icon: 'clipboard-list';
+    description: '';
+  };
+  attributes: {
+    apartmentCategory: Attribute.Relation<
+      'apartments.apartment-category-wrapper',
+      'oneToOne',
+      'api::apartment-category.apartment-category'
+    >;
+    technicalName: Attribute.String & Attribute.Required & Attribute.Private;
+  };
+}
+
+export interface ApartmentsApartmentPlaceholder extends Schema.Component {
+  collectionName: 'cmp_apartment_placeholders';
+  info: {
+    displayName: 'Apartment Placeholder';
+    icon: 'indent';
+    description: '';
+  };
+  attributes: {
+    componentGridItemSettings: Attribute.Component<'global-components.settings-json'>;
+    settings: Attribute.Component<'global-components.settings-json'>;
+    coverImageAnonymousActionButtons: Attribute.Component<
+      'buttons.apartment-anonymous-action-button',
+      true
+    >;
+    coverImageActionButtonsGridContainerSettings: Attribute.Component<'global-components.settings-json'>;
+    backButtonIcon: Attribute.Media;
+    favoriteIcon: Attribute.Media;
+    favoriteActiveIcon: Attribute.Media;
+  };
+}
+
+export interface ApartmentsApartmentWrapper extends Schema.Component {
+  collectionName: 'cmp_apartment_wrappers';
+  info: {
+    displayName: 'Apartment Wrapper';
+    icon: 'play-circle';
+  };
+  attributes: {
+    apartment: Attribute.Relation<
+      'apartments.apartment-wrapper',
+      'oneToOne',
+      'api::apartment.apartment'
+    >;
+    technicalName: Attribute.String & Attribute.Required & Attribute.Private;
+  };
+}
+
+export interface ApartmentsApartment extends Schema.Component {
+  collectionName: 'cmp_apartments';
+  info: {
+    displayName: 'Apartment';
+    icon: 'dice-six';
+    description: '';
+  };
+  attributes: {
+    componentGridItemSettings: Attribute.Component<'global-components.settings-json'>;
+    apartment: Attribute.Relation<
+      'apartments.apartment',
+      'oneToOne',
+      'api::apartment.apartment'
+    >;
+  };
+}
+
+export interface ApartmentsApartmentsCatalogSearch extends Schema.Component {
+  collectionName: 'cmp_apartments_catalog_searches';
+  info: {
+    displayName: 'apartmentsCatalogSearch';
+  };
+  attributes: {
+    anonymousRedirectLink: Attribute.String;
+  };
+}
+
+export interface ApartmentsApartmentsCatalog extends Schema.Component {
+  collectionName: 'cmp_apartments_catalogs';
+  info: {
+    displayName: 'Apartments Catalog';
+    icon: 'align-justify';
+    description: '';
+  };
+  attributes: {
+    useLoadMore: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    componentGridItemSettings: Attribute.Component<'global-components.settings-json'>;
+    title: Attribute.String;
+    displayCategoryApartmentsCount: Attribute.Boolean &
+      Attribute.DefaultTo<true>;
+    categories: Attribute.Component<
+      'apartments.apartment-category-wrapper',
+      true
+    >;
+    defaultCategory: Attribute.Relation<
+      'apartments.apartments-catalog',
+      'oneToOne',
+      'api::apartment-category.apartment-category'
+    >;
+    settings: Attribute.Component<'global-components.settings-json'>;
+    useSorting: Attribute.Enumeration<
+      [
+        'xsUp',
+        'smUp',
+        'mdUp',
+        'lgUp',
+        'xlUp',
+        'smDown',
+        'mdDown',
+        'lgDown',
+        'xlDown'
+      ]
+    > &
+      Attribute.DefaultTo<'xsUp'>;
+    useSearch: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<true>;
+    showMoreButton: Attribute.Component<'buttons.specialty-button'>;
+    apartmentsCatalogSearch: Attribute.Component<'apartments.apartments-catalog-search'>;
+  };
+}
+
 export interface ButtonsApartmentAnonymousActionButton
   extends Schema.Component {
   collectionName: 'cmp_apart_anon_action_buttons';
@@ -903,6 +1031,12 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'apartment.apartment-title-placeholder': ApartmentApartmentTitlePlaceholder;
+      'apartments.apartment-category-wrapper': ApartmentsApartmentCategoryWrapper;
+      'apartments.apartment-placeholder': ApartmentsApartmentPlaceholder;
+      'apartments.apartment-wrapper': ApartmentsApartmentWrapper;
+      'apartments.apartment': ApartmentsApartment;
+      'apartments.apartments-catalog-search': ApartmentsApartmentsCatalogSearch;
+      'apartments.apartments-catalog': ApartmentsApartmentsCatalog;
       'buttons.apartment-anonymous-action-button': ButtonsApartmentAnonymousActionButton;
       'buttons.apartment-authenticated-action-button': ButtonsApartmentAuthenticatedActionButton;
       'buttons.banner-anonymous-action-button': ButtonsBannerAnonymousActionButton;

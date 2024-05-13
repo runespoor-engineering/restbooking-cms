@@ -1,0 +1,21 @@
+{
+  "collectionName": "cmp_apartments",
+  "info": {
+    "displayName": "Apartment",
+    "icon": "dice-six",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "componentGridItemSettings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "apartment": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::apartment.apartment"
+    }
+  }
+}

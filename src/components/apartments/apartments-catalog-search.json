@@ -1,0 +1,12 @@
+{
+  "collectionName": "cmp_apartments_catalog_searches",
+  "info": {
+    "displayName": "apartmentsCatalogSearch"
+  },
+  "options": {},
+  "attributes": {
+    "anonymousRedirectLink": {
+      "type": "string"
+    }
+  }
+}

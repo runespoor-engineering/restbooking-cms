@@ -1,0 +1,20 @@
+{
+  "collectionName": "cmp_apartment_wrappers",
+  "info": {
+    "displayName": "Apartment Wrapper",
+    "icon": "play-circle"
+  },
+  "options": {},
+  "attributes": {
+    "apartment": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::apartment.apartment"
+    },
+    "technicalName": {
+      "type": "string",
+      "required": true,
+      "private": true
+    }
+  }
+}

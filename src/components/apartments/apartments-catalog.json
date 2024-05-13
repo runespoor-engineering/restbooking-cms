@@ -1,0 +1,75 @@
+{
+  "collectionName": "cmp_apartments_catalogs",
+  "info": {
+    "displayName": "Apartments Catalog",
+    "icon": "align-justify",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "useLoadMore": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "componentGridItemSettings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "title": {
+      "type": "string"
+    },
+    "displayCategoryApartmentsCount": {
+      "type": "boolean",
+      "default": true
+    },
+    "categories": {
+      "type": "component",
+      "repeatable": true,
+      "component": "apartments.apartment-category-wrapper"
+    },
+    "defaultCategory": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::apartment-category.apartment-category"
+    },
+    "settings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "useSorting": {
+      "type": "enumeration",
+      "enum": [
+        "xsUp",
+        "smUp",
+        "mdUp",
+        "lgUp",
+        "xlUp",
+        "smDown",
+        "mdDown",
+        "lgDown",
+        "xlDown"
+      ],
+      "required": false,
+      "default": "xsUp"
+    },
+    "useSearch": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "showMoreButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "buttons.specialty-button"
+    },
+    "apartmentsCatalogSearch": {
+      "displayName": "apartmentsCatalogSearch",
+      "type": "component",
+      "repeatable": false,
+      "component": "apartments.apartments-catalog-search"
+    }
+  }
+}

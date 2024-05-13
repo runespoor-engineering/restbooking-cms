@@ -42,7 +42,7 @@
       },
       "component": "global-components.settings-json"
     },
-    "gameThumbnailType": {
+    "apartmentThumbnailType": {
       "type": "enumeration",
       "enum": [
         "square",

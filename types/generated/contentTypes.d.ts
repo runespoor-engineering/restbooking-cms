@@ -1830,7 +1830,7 @@ export interface ApiTemplateApartmentPreviewTemplateApartmentPreview
           localized: false;
         };
       }>;
-    gameThumbnailType: Attribute.Enumeration<['square', 'rectangular']> &
+    apartmentThumbnailType: Attribute.Enumeration<['square', 'rectangular']> &
       Attribute.Required &
       Attribute.DefaultTo<'square'>;
     technicalName: Attribute.String &

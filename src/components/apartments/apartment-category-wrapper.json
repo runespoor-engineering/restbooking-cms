@@ -1,0 +1,21 @@
+{
+  "collectionName": "cmp_apartment_category_wrappers",
+  "info": {
+    "displayName": "Apartment Category Wrapper",
+    "icon": "clipboard-list",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "apartmentCategory": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::apartment-category.apartment-category"
+    },
+    "technicalName": {
+      "type": "string",
+      "required": true,
+      "private": true
+    }
+  }
+}
