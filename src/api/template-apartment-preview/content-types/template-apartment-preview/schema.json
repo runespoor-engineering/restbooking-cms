@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "template_apartment_previews",
+  "info": {
+    "singularName": "template-apartment-preview",
+    "pluralName": "template-apartment-previews",
+    "displayName": "Template Apartment Preview"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "brand": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::brand.brand"
+    },
+    "uiComponents": {
+      "type": "dynamiczone",
+      "components": [
+        "buttons.apartment-anonymous-action-button",
+        "buttons.apartment-authenticated-action-button",
+        "apartment.apartment-title-placeholder"
+      ]
+    },
+    "uiComponentsOverlay": {
+      "type": "dynamiczone",
+      "components": [
+        "buttons.apartment-anonymous-action-button",
+        "buttons.apartment-authenticated-action-button",
+        "apartment.apartment-title-placeholder"
+      ]
+    },
+    "componentsGridContainerSettings": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "global-components.settings-json"
+    },
+    "gameThumbnailType": {
+      "type": "enumeration",
+      "enum": [
+        "square",
+        "rectangular"
+      ],
+      "default": "square",
+      "required": true
+    },
+    "technicalName": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "private": true,
+      "required": true
+    },
+    "apartment_categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::apartment-category.apartment-category",
+      "mappedBy": "template_apartment_preview"
+    }
+  }
+}

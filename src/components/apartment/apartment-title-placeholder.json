@@ -1,0 +1,25 @@
+{
+  "collectionName": "cmp_apart_title_phs",
+  "info": {
+    "displayName": "apartment Title Placeholder"
+  },
+  "options": {},
+  "attributes": {
+    "settings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "componentGridItemSettings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "useBreakpoint": {
+      "type": "component",
+      "repeatable": false,
+      "required": true,
+      "component": "global-components.use-breakpoint"
+    }
+  }
+}

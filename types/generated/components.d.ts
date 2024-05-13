@@ -1,6 +1,20 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface ButtonsApartAnonymousActionButton extends Schema.Component {
+export interface ApartmentApartmentTitlePlaceholder extends Schema.Component {
+  collectionName: 'cmp_apart_title_phs';
+  info: {
+    displayName: 'apartment Title Placeholder';
+  };
+  attributes: {
+    settings: Attribute.Component<'global-components.settings-json'>;
+    componentGridItemSettings: Attribute.Component<'global-components.settings-json'>;
+    useBreakpoint: Attribute.Component<'global-components.use-breakpoint'> &
+      Attribute.Required;
+  };
+}
+
+export interface ButtonsApartmentAnonymousActionButton
+  extends Schema.Component {
   collectionName: 'cmp_apart_anon_action_buttons';
   info: {
     displayName: 'Apartment Anonymous Action Button';
@@ -22,7 +36,7 @@ export interface ButtonsApartAnonymousActionButton extends Schema.Component {
   };
 }
 
-export interface ButtonsApartAuthenticatedActionButton
+export interface ButtonsApartmentAuthenticatedActionButton
   extends Schema.Component {
   collectionName: 'cmp_apart_auth_action_buttons';
   info: {
@@ -888,8 +902,9 @@ export interface UserAccountUserAccountMenuButton extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'buttons.apart-anonymous-action-button': ButtonsApartAnonymousActionButton;
-      'buttons.apart-authenticated-action-button': ButtonsApartAuthenticatedActionButton;
+      'apartment.apartment-title-placeholder': ApartmentApartmentTitlePlaceholder;
+      'buttons.apartment-anonymous-action-button': ButtonsApartmentAnonymousActionButton;
+      'buttons.apartment-authenticated-action-button': ButtonsApartmentAuthenticatedActionButton;
       'buttons.banner-anonymous-action-button': ButtonsBannerAnonymousActionButton;
       'buttons.banner-authenticated-action-button': ButtonsBannerAuthenticatedActionButton;
       'buttons.global-anonymous-action-button': ButtonsGlobalAnonymousActionButton;

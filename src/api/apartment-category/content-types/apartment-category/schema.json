@@ -4,7 +4,8 @@
   "info": {
     "singularName": "apartment-category",
     "pluralName": "apartment-categories",
-    "displayName": "Apartment Category"
+    "displayName": "Apartment Category",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -93,6 +94,12 @@
       "type": "string",
       "required": true,
       "private": true
+    },
+    "template_apartment_preview": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::template-apartment-preview.template-apartment-preview",
+      "inversedBy": "apartment_categories"
     }
   }
 }

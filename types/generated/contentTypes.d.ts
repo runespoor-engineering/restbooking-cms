@@ -895,6 +895,7 @@ export interface ApiApartmentCategoryApartmentCategory
     singularName: 'apartment-category';
     pluralName: 'apartment-categories';
     displayName: 'Apartment Category';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -961,6 +962,11 @@ export interface ApiApartmentCategoryApartmentCategory
           localized: false;
         };
       }>;
+    template_apartment_preview: Attribute.Relation<
+      'api::apartment-category.apartment-category',
+      'manyToOne',
+      'api::template-apartment-preview.template-apartment-preview'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1787,6 +1793,77 @@ export interface ApiNavigationNavigation extends Schema.CollectionType {
   };
 }
 
+export interface ApiTemplateApartmentPreviewTemplateApartmentPreview
+  extends Schema.CollectionType {
+  collectionName: 'template_apartment_previews';
+  info: {
+    singularName: 'template-apartment-preview';
+    pluralName: 'template-apartment-previews';
+    displayName: 'Template Apartment Preview';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    brand: Attribute.Relation<
+      'api::template-apartment-preview.template-apartment-preview',
+      'oneToOne',
+      'api::brand.brand'
+    >;
+    uiComponents: Attribute.DynamicZone<
+      [
+        'buttons.apartment-anonymous-action-button',
+        'buttons.apartment-authenticated-action-button',
+        'apartment.apartment-title-placeholder'
+      ]
+    >;
+    uiComponentsOverlay: Attribute.DynamicZone<
+      [
+        'buttons.apartment-anonymous-action-button',
+        'buttons.apartment-authenticated-action-button',
+        'apartment.apartment-title-placeholder'
+      ]
+    >;
+    componentsGridContainerSettings: Attribute.Component<'global-components.settings-json'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    gameThumbnailType: Attribute.Enumeration<['square', 'rectangular']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'square'>;
+    technicalName: Attribute.String &
+      Attribute.Required &
+      Attribute.Private &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    apartment_categories: Attribute.Relation<
+      'api::template-apartment-preview.template-apartment-preview',
+      'oneToMany',
+      'api::apartment-category.apartment-category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::template-apartment-preview.template-apartment-preview',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::template-apartment-preview.template-apartment-preview',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1816,6 +1893,7 @@ declare module '@strapi/types' {
       'api::language.language': ApiLanguageLanguage;
       'api::layout.layout': ApiLayoutLayout;
       'api::navigation.navigation': ApiNavigationNavigation;
+      'api::template-apartment-preview.template-apartment-preview': ApiTemplateApartmentPreviewTemplateApartmentPreview;
     }
   }
 }
