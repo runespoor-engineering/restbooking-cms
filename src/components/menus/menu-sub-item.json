@@ -1,0 +1,27 @@
+{
+  "collectionName": "cmp_menu_sub_items",
+  "info": {
+    "displayName": "Menu Sub Item",
+    "icon": "sort-down",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "link": {
+      "type": "string",
+      "required": true
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

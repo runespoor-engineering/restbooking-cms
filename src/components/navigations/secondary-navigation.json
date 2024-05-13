@@ -1,0 +1,26 @@
+{
+  "collectionName": "cmp_secondary_navigations",
+  "info": {
+    "displayName": "Secondary Navigation",
+    "icon": "align-right"
+  },
+  "options": {},
+  "attributes": {
+    "settings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "componentGridItemSettings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "useBreakpoint": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.use-breakpoint",
+      "required": true
+    }
+  }
+}

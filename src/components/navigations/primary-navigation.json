@@ -1,0 +1,41 @@
+{
+  "collectionName": "cmp_primary_navigations",
+  "info": {
+    "displayName": "Primary Navigation",
+    "icon": "align-left",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "settings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "componentGridItemSettings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "useBreakpoint": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.use-breakpoint",
+      "required": true
+    },
+    "expandIcon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "collapseIcon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "collectionName": "cmp_menu_items",
+  "info": {
+    "displayName": "Menu Item",
+    "icon": "sitemap",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "link": {
+      "type": "string",
+      "required": true
+    },
+    "menuSubItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menus.menu-sub-item"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "linkOpeningType": {
+      "type": "enumeration",
+      "enum": ["Open", "Open in new tab"],
+      "default": "Open",
+      "required": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}

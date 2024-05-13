@@ -586,6 +586,98 @@ export interface GlobalComponentsUseBreakpoint extends Schema.Component {
   };
 }
 
+export interface MenusMenuGroup extends Schema.Component {
+  collectionName: 'cmp_menu_groups';
+  info: {
+    displayName: 'Menu Group';
+    icon: 'stream';
+  };
+  attributes: {
+    title: Attribute.String;
+    technicalName: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'Default group'>;
+    menuItems: Attribute.Component<'menus.menu-item', true>;
+  };
+}
+
+export interface MenusMenuItem extends Schema.Component {
+  collectionName: 'cmp_menu_items';
+  info: {
+    displayName: 'Menu Item';
+    icon: 'sitemap';
+    description: '';
+  };
+  attributes: {
+    text: Attribute.String & Attribute.Required;
+    link: Attribute.String & Attribute.Required;
+    menuSubItems: Attribute.Component<'menus.menu-sub-item', true>;
+    icon: Attribute.Media;
+    linkOpeningType: Attribute.Enumeration<['Open', 'Open in new tab']> &
+      Attribute.DefaultTo<'Open'>;
+  };
+}
+
+export interface MenusMenuSubItem extends Schema.Component {
+  collectionName: 'cmp_menu_sub_items';
+  info: {
+    displayName: 'Menu Sub Item';
+    icon: 'sort-down';
+    description: '';
+  };
+  attributes: {
+    text: Attribute.String & Attribute.Required;
+    link: Attribute.String & Attribute.Required;
+    icon: Attribute.Media;
+  };
+}
+
+export interface NavigationsAuxiliaryNavigation extends Schema.Component {
+  collectionName: 'cmp_navigations';
+  info: {
+    displayName: 'Auxiliary Navigation';
+    icon: 'align-left';
+    description: '';
+  };
+  attributes: {
+    settings: Attribute.Component<'global-components.settings-json'>;
+    componentGridItemSettings: Attribute.Component<'global-components.settings-json'>;
+    useBreakpoint: Attribute.Component<'global-components.use-breakpoint'> &
+      Attribute.Required;
+  };
+}
+
+export interface NavigationsPrimaryNavigation extends Schema.Component {
+  collectionName: 'cmp_primary_navigations';
+  info: {
+    displayName: 'Primary Navigation';
+    icon: 'align-left';
+    description: '';
+  };
+  attributes: {
+    settings: Attribute.Component<'global-components.settings-json'>;
+    componentGridItemSettings: Attribute.Component<'global-components.settings-json'>;
+    useBreakpoint: Attribute.Component<'global-components.use-breakpoint'> &
+      Attribute.Required;
+    expandIcon: Attribute.Media;
+    collapseIcon: Attribute.Media;
+  };
+}
+
+export interface NavigationsSecondaryNavigation extends Schema.Component {
+  collectionName: 'cmp_secondary_navigations';
+  info: {
+    displayName: 'Secondary Navigation';
+    icon: 'align-right';
+  };
+  attributes: {
+    settings: Attribute.Component<'global-components.settings-json'>;
+    componentGridItemSettings: Attribute.Component<'global-components.settings-json'>;
+    useBreakpoint: Attribute.Component<'global-components.use-breakpoint'> &
+      Attribute.Required;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -613,6 +705,12 @@ declare module '@strapi/types' {
       'global-components.slider-settings-json': GlobalComponentsSliderSettingsJson;
       'global-components.theme': GlobalComponentsTheme;
       'global-components.use-breakpoint': GlobalComponentsUseBreakpoint;
+      'menus.menu-group': MenusMenuGroup;
+      'menus.menu-item': MenusMenuItem;
+      'menus.menu-sub-item': MenusMenuSubItem;
+      'navigations.auxiliary-navigation': NavigationsAuxiliaryNavigation;
+      'navigations.primary-navigation': NavigationsPrimaryNavigation;
+      'navigations.secondary-navigation': NavigationsSecondaryNavigation;
     }
   }
 }

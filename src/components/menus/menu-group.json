@@ -1,0 +1,23 @@
+{
+  "collectionName": "cmp_menu_groups",
+  "info": {
+    "displayName": "Menu Group",
+    "icon": "stream"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "technicalName": {
+      "type": "string",
+      "default": "Default group",
+      "required": true
+    },
+    "menuItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menus.menu-item"
+    }
+  }
+}

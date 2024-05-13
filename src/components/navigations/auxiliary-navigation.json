@@ -1,0 +1,27 @@
+{
+  "collectionName": "cmp_navigations",
+  "info": {
+    "displayName": "Auxiliary Navigation",
+    "icon": "align-left",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "settings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "componentGridItemSettings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "useBreakpoint": {
+      "type": "component",
+      "repeatable": false,
+      "required": true,
+      "component": "global-components.use-breakpoint"
+    }
+  }
+}

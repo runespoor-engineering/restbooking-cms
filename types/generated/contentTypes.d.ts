@@ -1117,25 +1117,7 @@ export interface ApiFormForm extends Schema.CollectionType {
     };
   };
   attributes: {
-    type: Attribute.Enumeration<
-      [
-        'login',
-        'registration',
-        'shortRegistration',
-        'profile',
-        'sendRecoveryTokenByEmail',
-        'recoverPassword',
-        'updatePassword',
-        'verifyEmail',
-        'updateEmail',
-        'verifyPhone',
-        'updatePhone',
-        'kycVerify',
-        'ticketOpen',
-        'exchangeComplimentaryPoints',
-        'activatePromoCode'
-      ]
-    > &
+    type: Attribute.Enumeration<['login', 'registration', 'bookApartment']> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -1313,6 +1295,82 @@ export interface ApiLanguageLanguage extends Schema.CollectionType {
   };
 }
 
+export interface ApiNavigationNavigation extends Schema.CollectionType {
+  collectionName: 'navigations';
+  info: {
+    singularName: 'navigation';
+    pluralName: 'navigations';
+    displayName: 'Navigation';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    type: Attribute.Enumeration<['primary', 'secondary', 'auxiliary']> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    channel: Attribute.Enumeration<['generic', 'desktop', 'mobile']> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<'generic'>;
+    brand: Attribute.Relation<
+      'api::navigation.navigation',
+      'oneToOne',
+      'api::brand.brand'
+    >;
+    authenticationState: Attribute.Enumeration<
+      ['generic', 'anonymous', 'authenticated']
+    > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<'generic'>;
+    menuGroups: Attribute.Component<'menus.menu-group', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::navigation.navigation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::navigation.navigation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::navigation.navigation',
+      'oneToMany',
+      'api::navigation.navigation'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1337,6 +1395,7 @@ declare module '@strapi/types' {
       'api::faq-category.faq-category': ApiFaqCategoryFaqCategory;
       'api::form.form': ApiFormForm;
       'api::language.language': ApiLanguageLanguage;
+      'api::navigation.navigation': ApiNavigationNavigation;
     }
   }
 }
