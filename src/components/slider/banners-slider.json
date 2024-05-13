@@ -1,0 +1,36 @@
+{
+  "collectionName": "cmp_banners_sliders",
+  "info": {
+    "displayName": "Banners Slider",
+    "icon": "images",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "settings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "componentGridItemSettings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "banners": {
+      "type": "component",
+      "repeatable": true,
+      "component": "slider.banner-slide",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": false
+    },
+    "sliderSettings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.slider-settings-json"
+    }
+  }
+}

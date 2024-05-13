@@ -1,0 +1,21 @@
+{
+  "collectionName": "cmp_banner_slides",
+  "info": {
+    "displayName": "Banner Slide",
+    "icon": "file-import",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "banner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::banner.banner"
+    },
+    "technicalName": {
+      "type": "string",
+      "required": true,
+      "private": true
+    }
+  }
+}

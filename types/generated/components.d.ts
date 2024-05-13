@@ -1011,6 +1011,40 @@ export interface SeoSeo extends Schema.Component {
   };
 }
 
+export interface SliderBannerSlide extends Schema.Component {
+  collectionName: 'cmp_banner_slides';
+  info: {
+    displayName: 'Banner Slide';
+    icon: 'file-import';
+    description: '';
+  };
+  attributes: {
+    banner: Attribute.Relation<
+      'slider.banner-slide',
+      'oneToOne',
+      'api::banner.banner'
+    >;
+    technicalName: Attribute.String & Attribute.Required & Attribute.Private;
+  };
+}
+
+export interface SliderBannersSlider extends Schema.Component {
+  collectionName: 'cmp_banners_sliders';
+  info: {
+    displayName: 'Banners Slider';
+    icon: 'images';
+    description: '';
+  };
+  attributes: {
+    settings: Attribute.Component<'global-components.settings-json'>;
+    componentGridItemSettings: Attribute.Component<'global-components.settings-json'>;
+    banners: Attribute.Component<'slider.banner-slide', true> &
+      Attribute.Required;
+    title: Attribute.String;
+    sliderSettings: Attribute.Component<'global-components.slider-settings-json'>;
+  };
+}
+
 export interface UserAccountUserAccountMenuButton extends Schema.Component {
   collectionName: 'cmp_user_account_menu_buttons';
   info: {
@@ -1079,6 +1113,8 @@ declare module '@strapi/types' {
       'seo.default-seo': SeoDefaultSeo;
       'seo.meta': SeoMeta;
       'seo.seo': SeoSeo;
+      'slider.banner-slide': SliderBannerSlide;
+      'slider.banners-slider': SliderBannersSlider;
       'user-account.user-account-menu-button': UserAccountUserAccountMenuButton;
     }
   }
