@@ -1,0 +1,32 @@
+{
+  "collectionName": "cmp_components_cover_images",
+  "info": {
+    "displayName": "Cover Image",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "largeImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "smallImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "settings": {
+      "type": "json"
+    }
+  }
+}

@@ -521,6 +521,20 @@ export interface FormsForm extends Schema.Component {
   };
 }
 
+export interface GlobalComponentsCoverImage extends Schema.Component {
+  collectionName: 'cmp_components_cover_images';
+  info: {
+    displayName: 'Cover Image';
+    description: '';
+  };
+  attributes: {
+    largeImage: Attribute.Media & Attribute.Required;
+    smallImage: Attribute.Media & Attribute.Required;
+    description: Attribute.RichText;
+    settings: Attribute.JSON;
+  };
+}
+
 export interface GlobalComponentsImageDimensions extends Schema.Component {
   collectionName: 'cmp_image_dimensions';
   info: {
@@ -810,6 +824,51 @@ export interface PageComponentsThemeSwitcher extends Schema.Component {
   };
 }
 
+export interface SeoDefaultSeo extends Schema.Component {
+  collectionName: 'cmp_default_seos';
+  info: {
+    displayName: 'Default Seo';
+    icon: 'search-location';
+    description: '';
+  };
+  attributes: {
+    titleTemplate: Attribute.String;
+    defaultTitle: Attribute.String;
+    dangerouslySetAllPagesToNoIndex: Attribute.Boolean;
+    dangerouslySetAllPagesToNoFollow: Attribute.Boolean;
+    description: Attribute.String;
+  };
+}
+
+export interface SeoMeta extends Schema.Component {
+  collectionName: 'cmp_metas';
+  info: {
+    displayName: 'Meta';
+    icon: 'search-dollar';
+  };
+  attributes: {
+    name: Attribute.String;
+    property: Attribute.String;
+    content: Attribute.String;
+  };
+}
+
+export interface SeoSeo extends Schema.Component {
+  collectionName: 'cmp_seos';
+  info: {
+    displayName: 'SEO';
+    icon: 'search';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.String;
+    meta: Attribute.Component<'seo.meta', true>;
+    microMarkup: Attribute.JSON;
+    openGraph: Attribute.JSON;
+  };
+}
+
 export interface UserAccountUserAccountMenuButton extends Schema.Component {
   collectionName: 'cmp_user_account_menu_buttons';
   info: {
@@ -849,6 +908,7 @@ declare module '@strapi/types' {
       'forms.form-group': FormsFormGroup;
       'forms.form-step': FormsFormStep;
       'forms.form': FormsForm;
+      'global-components.cover-image': GlobalComponentsCoverImage;
       'global-components.image-dimensions': GlobalComponentsImageDimensions;
       'global-components.progress-animation': GlobalComponentsProgressAnimation;
       'global-components.settings-json': GlobalComponentsSettingsJson;
@@ -867,6 +927,9 @@ declare module '@strapi/types' {
       'page-components.logo': PageComponentsLogo;
       'page-components.rich-text': PageComponentsRichText;
       'page-components.theme-switcher': PageComponentsThemeSwitcher;
+      'seo.default-seo': SeoDefaultSeo;
+      'seo.meta': SeoMeta;
+      'seo.seo': SeoSeo;
       'user-account.user-account-menu-button': UserAccountUserAccountMenuButton;
     }
   }

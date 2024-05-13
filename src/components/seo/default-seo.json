@@ -1,0 +1,26 @@
+{
+  "collectionName": "cmp_default_seos",
+  "info": {
+    "displayName": "Default Seo",
+    "icon": "search-location",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "titleTemplate": {
+      "type": "string"
+    },
+    "defaultTitle": {
+      "type": "string"
+    },
+    "dangerouslySetAllPagesToNoIndex": {
+      "type": "boolean"
+    },
+    "dangerouslySetAllPagesToNoFollow": {
+      "type": "boolean"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

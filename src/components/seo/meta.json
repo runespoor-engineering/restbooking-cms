@@ -1,0 +1,19 @@
+{
+  "collectionName": "cmp_metas",
+  "info": {
+    "displayName": "Meta",
+    "icon": "search-dollar"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "property": {
+      "type": "string"
+    },
+    "content": {
+      "type": "string"
+    }
+  }
+}
