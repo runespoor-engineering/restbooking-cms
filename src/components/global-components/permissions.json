@@ -1,0 +1,21 @@
+{
+  "collectionName": "cmp_permissions",
+  "info": {
+    "displayName": "Permissions",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "availableOnlyFor": {
+      "type": "enumeration",
+      "enum": [
+        "authenticated",
+        "anonymous"
+      ],
+      "required": true
+    },
+    "redirectUrl": {
+      "type": "string"
+    }
+  }
+}

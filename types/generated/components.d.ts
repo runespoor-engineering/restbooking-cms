@@ -688,6 +688,19 @@ export interface GlobalComponentsImageDimensions extends Schema.Component {
   };
 }
 
+export interface GlobalComponentsPermissions extends Schema.Component {
+  collectionName: 'cmp_permissions';
+  info: {
+    displayName: 'Permissions';
+    description: '';
+  };
+  attributes: {
+    availableOnlyFor: Attribute.Enumeration<['authenticated', 'anonymous']> &
+      Attribute.Required;
+    redirectUrl: Attribute.String;
+  };
+}
+
 export interface GlobalComponentsProgressAnimation extends Schema.Component {
   collectionName: 'cmp_progress_animations';
   info: {
@@ -1093,6 +1106,7 @@ declare module '@strapi/types' {
       'forms.form': FormsForm;
       'global-components.cover-image': GlobalComponentsCoverImage;
       'global-components.image-dimensions': GlobalComponentsImageDimensions;
+      'global-components.permissions': GlobalComponentsPermissions;
       'global-components.progress-animation': GlobalComponentsProgressAnimation;
       'global-components.settings-json': GlobalComponentsSettingsJson;
       'global-components.slider-settings-json': GlobalComponentsSliderSettingsJson;

@@ -1793,6 +1793,118 @@ export interface ApiNavigationNavigation extends Schema.CollectionType {
   };
 }
 
+export interface ApiPageContentPageContent extends Schema.CollectionType {
+  collectionName: 'page_contents';
+  info: {
+    singularName: 'page-content';
+    pluralName: 'page-contents';
+    displayName: 'Page: Content';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    slug: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    technicalName: Attribute.String &
+      Attribute.Required &
+      Attribute.Private &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    brand: Attribute.Relation<
+      'api::page-content.page-content',
+      'oneToOne',
+      'api::brand.brand'
+    >;
+    seo: Attribute.Component<'seo.seo'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    componentsGridContainerSettings: Attribute.Component<'global-components.settings-json'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    uiComponents: Attribute.DynamicZone<
+      [
+        'faq.faq-catalog',
+        'forms.form',
+        'apartments.apartment',
+        'apartments.apartments-catalog',
+        'page-components.rich-text',
+        'page-components.breadcrumbs',
+        'slider.banners-slider',
+        'page-components.iframe',
+        'navigations.user-account-navigation',
+        'seo.sitemap',
+        'buttons.global-generic-action-button',
+        'faq.faq-catalog-manual'
+      ]
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    permissions: Attribute.Component<'global-components.permissions'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    settings: Attribute.Component<'global-components.settings-json'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::page-content.page-content',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::page-content.page-content',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::page-content.page-content',
+      'oneToMany',
+      'api::page-content.page-content'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiTemplateApartmentPreviewTemplateApartmentPreview
   extends Schema.CollectionType {
   collectionName: 'template_apartment_previews';
@@ -1893,6 +2005,7 @@ declare module '@strapi/types' {
       'api::language.language': ApiLanguageLanguage;
       'api::layout.layout': ApiLayoutLayout;
       'api::navigation.navigation': ApiNavigationNavigation;
+      'api::page-content.page-content': ApiPageContentPageContent;
       'api::template-apartment-preview.template-apartment-preview': ApiTemplateApartmentPreviewTemplateApartmentPreview;
     }
   }
