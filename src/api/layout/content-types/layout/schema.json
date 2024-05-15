@@ -152,18 +152,6 @@
       "target": "api::page-content.page-content",
       "mappedBy": "layout"
     },
-    "page_requireds": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::page-required.page-required",
-      "mappedBy": "layout"
-    },
-    "page_templates": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::page-template.page-template",
-      "mappedBy": "layout"
-    },
     "technicalName": {
       "pluginOptions": {
         "i18n": {
