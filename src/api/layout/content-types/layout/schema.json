@@ -4,7 +4,8 @@
   "info": {
     "singularName": "layout",
     "pluralName": "layouts",
-    "displayName": "Layout"
+    "displayName": "Layout",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -75,6 +76,7 @@
       },
       "type": "dynamiczone",
       "components": [
+        "page-components.logo",
         "buttons.global-authenticated-action-button",
         "navigations.primary-navigation",
         "page-components.theme-switcher",
@@ -146,12 +148,6 @@
       },
       "component": "global-components.settings-json"
     },
-    "page_contents": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::page-content.page-content",
-      "mappedBy": "layout"
-    },
     "technicalName": {
       "pluginOptions": {
         "i18n": {
@@ -166,6 +162,12 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::brand.brand"
+    },
+    "page_contents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::page-content.page-content",
+      "mappedBy": "layout"
     }
   }
 }

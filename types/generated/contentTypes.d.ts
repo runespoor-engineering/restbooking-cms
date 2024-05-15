@@ -1553,6 +1553,7 @@ export interface ApiLayoutLayout extends Schema.CollectionType {
     singularName: 'layout';
     pluralName: 'layouts';
     displayName: 'Layout';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1610,6 +1611,7 @@ export interface ApiLayoutLayout extends Schema.CollectionType {
       }>;
     authenticatedSidebarUiComponents: Attribute.DynamicZone<
       [
+        'page-components.logo',
         'buttons.global-authenticated-action-button',
         'navigations.primary-navigation',
         'page-components.theme-switcher',
@@ -1665,11 +1667,6 @@ export interface ApiLayoutLayout extends Schema.CollectionType {
           localized: false;
         };
       }>;
-    page_contents: Attribute.Relation<
-      'api::layout.layout',
-      'oneToMany',
-      'api::page-content.page-content'
-    >;
     technicalName: Attribute.String &
       Attribute.Required &
       Attribute.Private &
@@ -1682,6 +1679,11 @@ export interface ApiLayoutLayout extends Schema.CollectionType {
       'api::layout.layout',
       'oneToOne',
       'api::brand.brand'
+    >;
+    page_contents: Attribute.Relation<
+      'api::layout.layout',
+      'oneToMany',
+      'api::page-content.page-content'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1870,6 +1872,11 @@ export interface ApiPageContentPageContent extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    layout: Attribute.Relation<
+      'api::page-content.page-content',
+      'manyToOne',
+      'api::layout.layout'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

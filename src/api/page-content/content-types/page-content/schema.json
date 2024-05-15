@@ -109,6 +109,12 @@
       },
       "type": "string",
       "required": true
+    },
+    "layout": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::layout.layout",
+      "inversedBy": "page_contents"
     }
   }
 }
