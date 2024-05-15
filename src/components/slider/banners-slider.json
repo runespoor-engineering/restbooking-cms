@@ -30,7 +30,7 @@
     "sliderSettings": {
       "type": "component",
       "repeatable": false,
-      "component": "global-components.slider-settings-json"
+      "component": "global-components.settings-json"
     }
   }
 }

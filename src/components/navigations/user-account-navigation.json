@@ -1,0 +1,34 @@
+{
+  "collectionName": "cmp_user_account_navigations",
+  "info": {
+    "displayName": "User Account Navigation",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "menuType": {
+      "type": "enumeration",
+      "enum": [
+        "tabs",
+        "dropdown"
+      ],
+      "required": true,
+      "default": "tabs"
+    },
+    "componentGridItemSettings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "settings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global-components.settings-json"
+    },
+    "useTopLevelNavigation": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    }
+  }
+}

@@ -1852,7 +1852,6 @@ export interface ApiPageContentPageContent extends Schema.CollectionType {
         'slider.banners-slider',
         'page-components.iframe',
         'navigations.user-account-navigation',
-        'seo.sitemap',
         'buttons.global-generic-action-button',
         'faq.faq-catalog-manual'
       ]

@@ -880,6 +880,22 @@ export interface NavigationsSecondaryNavigation extends Schema.Component {
   };
 }
 
+export interface NavigationsUserAccountNavigation extends Schema.Component {
+  collectionName: 'cmp_user_account_navigations';
+  info: {
+    displayName: 'User Account Navigation';
+    description: '';
+  };
+  attributes: {
+    menuType: Attribute.Enumeration<['tabs', 'dropdown']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'tabs'>;
+    componentGridItemSettings: Attribute.Component<'global-components.settings-json'>;
+    settings: Attribute.Component<'global-components.settings-json'>;
+    useTopLevelNavigation: Attribute.Boolean & Attribute.DefaultTo<true>;
+  };
+}
+
 export interface PageComponentsBreadcrumbs extends Schema.Component {
   collectionName: 'cmp_breadcrumbs';
   info: {
@@ -1054,7 +1070,7 @@ export interface SliderBannersSlider extends Schema.Component {
     banners: Attribute.Component<'slider.banner-slide', true> &
       Attribute.Required;
     title: Attribute.String;
-    sliderSettings: Attribute.Component<'global-components.slider-settings-json'>;
+    sliderSettings: Attribute.Component<'global-components.settings-json'>;
   };
 }
 
@@ -1118,6 +1134,7 @@ declare module '@strapi/types' {
       'navigations.auxiliary-navigation': NavigationsAuxiliaryNavigation;
       'navigations.primary-navigation': NavigationsPrimaryNavigation;
       'navigations.secondary-navigation': NavigationsSecondaryNavigation;
+      'navigations.user-account-navigation': NavigationsUserAccountNavigation;
       'page-components.breadcrumbs': PageComponentsBreadcrumbs;
       'page-components.iframe': PageComponentsIframe;
       'page-components.language-switcher': PageComponentsLanguageSwitcher;
