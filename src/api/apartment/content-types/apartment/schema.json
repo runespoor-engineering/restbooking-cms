@@ -4,7 +4,8 @@
   "info": {
     "singularName": "apartment",
     "pluralName": "apartments",
-    "displayName": "Apartment"
+    "displayName": "Apartment",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -105,6 +106,15 @@
         }
       },
       "component": "global-components.cover-image",
+      "required": false
+    },
+    "price": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "integer",
       "required": false
     }
   }

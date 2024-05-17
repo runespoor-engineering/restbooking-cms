@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "booking_orders",
+  "info": {
+    "singularName": "booking-order",
+    "pluralName": "booking-orders",
+    "displayName": "Booking Order"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "bookingInfo": {
+      "type": "json",
+      "required": false
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "apartment": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::apartment.apartment"
+    }
+  }
+}

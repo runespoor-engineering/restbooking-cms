@@ -794,6 +794,7 @@ export interface ApiApartmentApartment extends Schema.CollectionType {
     singularName: 'apartment';
     pluralName: 'apartments';
     displayName: 'Apartment';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -859,6 +860,12 @@ export interface ApiApartmentApartment extends Schema.CollectionType {
       'api::apartment-category.apartment-category'
     >;
     coverImage: Attribute.Component<'global-components.cover-image'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    price: Attribute.Integer &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -1131,6 +1138,46 @@ export interface ApiBannerBanner extends Schema.CollectionType {
       'api::banner.banner'
     >;
     locale: Attribute.String;
+  };
+}
+
+export interface ApiBookingOrderBookingOrder extends Schema.CollectionType {
+  collectionName: 'booking_orders';
+  info: {
+    singularName: 'booking-order';
+    pluralName: 'booking-orders';
+    displayName: 'Booking Order';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bookingInfo: Attribute.JSON;
+    users_permissions_user: Attribute.Relation<
+      'api::booking-order.booking-order',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    apartment: Attribute.Relation<
+      'api::booking-order.booking-order',
+      'oneToOne',
+      'api::apartment.apartment'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::booking-order.booking-order',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::booking-order.booking-order',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
   };
 }
 
@@ -1993,6 +2040,7 @@ declare module '@strapi/types' {
       'api::apartment.apartment': ApiApartmentApartment;
       'api::apartment-category.apartment-category': ApiApartmentCategoryApartmentCategory;
       'api::banner.banner': ApiBannerBanner;
+      'api::booking-order.booking-order': ApiBookingOrderBookingOrder;
       'api::brand.brand': ApiBrandBrand;
       'api::faq.faq': ApiFaqFaq;
       'api::faq-category.faq-category': ApiFaqCategoryFaqCategory;
