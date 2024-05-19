@@ -1763,6 +1763,103 @@ export interface ApiLayoutLayout extends Schema.CollectionType {
   };
 }
 
+export interface ApiModalContentModalContent extends Schema.CollectionType {
+  collectionName: 'modal_contents';
+  info: {
+    singularName: 'modal-content';
+    pluralName: 'modal-contents';
+    displayName: 'Modal: Content';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    brand: Attribute.Relation<
+      'api::modal-content.modal-content',
+      'oneToOne',
+      'api::brand.brand'
+    >;
+    backdropImage: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    uiComponents: Attribute.DynamicZone<
+      [
+        'forms.form',
+        'page-components.rich-text',
+        'slider.banners-slider',
+        'page-components.iframe',
+        'buttons.global-generic-action-button'
+      ]
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    modalSettings: Attribute.Component<'global-components.settings-json'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    componentsGridContainerSettings: Attribute.Component<'global-components.settings-json'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    useSaveHistoryOnClose: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<true>;
+    backgroundCoverImage: Attribute.Component<'global-components.cover-image'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::modal-content.modal-content',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::modal-content.modal-content',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::modal-content.modal-content',
+      'oneToMany',
+      'api::modal-content.modal-content'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiNavigationNavigation extends Schema.CollectionType {
   collectionName: 'navigations';
   info: {
@@ -2055,6 +2152,7 @@ declare module '@strapi/types' {
       'api::global-ui-config.global-ui-config': ApiGlobalUiConfigGlobalUiConfig;
       'api::language.language': ApiLanguageLanguage;
       'api::layout.layout': ApiLayoutLayout;
+      'api::modal-content.modal-content': ApiModalContentModalContent;
       'api::navigation.navigation': ApiNavigationNavigation;
       'api::page-content.page-content': ApiPageContentPageContent;
       'api::template-apartment-preview.template-apartment-preview': ApiTemplateApartmentPreviewTemplateApartmentPreview;

@@ -1,0 +1,102 @@
+{
+  "kind": "collectionType",
+  "collectionName": "modal_contents",
+  "info": {
+    "singularName": "modal-content",
+    "pluralName": "modal-contents",
+    "displayName": "Modal: Content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "brand": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::brand.brand"
+    },
+    "backdropImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "uiComponents": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "forms.form",
+        "page-components.rich-text",
+        "slider.banners-slider",
+        "page-components.iframe",
+        "buttons.global-generic-action-button"
+      ]
+    },
+    "modalSettings": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "global-components.settings-json"
+    },
+    "componentsGridContainerSettings": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "global-components.settings-json"
+    },
+    "useSaveHistoryOnClose": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "backgroundCoverImage": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "global-components.cover-image",
+      "required": false
+    }
+  }
+}
